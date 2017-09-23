@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     
     @IBAction func subtractOne(_ sender: Any) {
         numStore = numStore - 1
+        
+        //Updates numLabel color if 0 or negative
         if (numStore == 0){
             numLabel.textColor = UIColor.black
             }
@@ -28,6 +30,8 @@ class ViewController: UIViewController {
     
     @IBAction func addOne(_ sender: Any) {
         numStore = numStore + 1
+        
+        //Updates numLabel color if 0 or positive
         if (numStore == 0){
             numLabel.textColor = UIColor.black
         }
