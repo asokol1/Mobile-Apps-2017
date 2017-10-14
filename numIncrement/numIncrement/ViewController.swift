@@ -17,13 +17,13 @@ class ViewController: UIViewController {
     
     @IBAction func subtractOne(_ sender: Any) {
         numStore = numStore - 1
-        changeColor(num: numStore)
+        changeCol(num: numStore)
         updateLabel()
     }
     
     @IBAction func addOne(_ sender: Any) {
         numStore = numStore + 1
-        changeColor(num: numStore)
+        changeCol(num: numStore)
         updateLabel()
     }
     
@@ -38,7 +38,7 @@ class ViewController: UIViewController {
     }
     
     //Switch Case to change Label Color based on value
-    func changeColor(num: Int){
+    func changeCol(num: Int){
         switch num{
         case let x where x < 0:
             numLabel.textColor = UIColor.red
