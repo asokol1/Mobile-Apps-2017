@@ -30,6 +30,7 @@ struct Image{
         self.ispublic = ispublic
         self.isfriend = isfriend
         self.isfamily = isfamily
+        //url should look like: https://farm5.static.flickr.com/4372/36669014643_ebea126ea3.jpg
         self.url = URL(string: "https://farm\(farm).static.flickr.com/\(server)/\(id)_\(secret).jpg")
         
     }

@@ -16,7 +16,6 @@ class ImageService {
     
     func imageForURL(url: URL?, completion: @escaping (UIImage?, URL?) -> ()) {
         guard let url = url else { completion(nil, nil); return }
-        print(url)
         if let image = cache[url] {
             completion(image, url)
             return

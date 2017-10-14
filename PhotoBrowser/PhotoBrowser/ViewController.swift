@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         let task = session.dataTask(with: url!) { (data, response, err) in
             let data = data!
             let json = try! JSONSerialization.jsonObject(with: data, options: [])
-            //parse through the json object to find the right dictionary
+            //data required is an array in a dictionary in a dictionary
             let outerDict = json as! [String:Any]
             let innerDict = outerDict["photos"] as! [String:Any]
             let array = innerDict["photo"] as! [[String: Any]]
