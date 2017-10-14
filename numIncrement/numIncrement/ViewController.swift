@@ -13,31 +13,17 @@ class ViewController: UIViewController {
     @IBOutlet weak var numLabel: UILabel!
     @IBOutlet weak var subtractNum: UIButton!
     @IBOutlet weak var addNum: UIButton!
-    var numStore: Int = 0  //Integer used to keep track of and update the String numLabel
+    var numStore: Int = 0
     
     @IBAction func subtractOne(_ sender: Any) {
         numStore = numStore - 1
-        
-        //Updates numLabel color if 0 or negative
-        if (numStore == 0){
-            numLabel.textColor = UIColor.black
-            }
-        else if (numStore < 0){
-            numLabel.textColor = UIColor.red
-        }
+        changeColor(num: numStore)
         updateLabel()
     }
     
     @IBAction func addOne(_ sender: Any) {
         numStore = numStore + 1
-        
-        //Updates numLabel color if 0 or positive
-        if (numStore == 0){
-            numLabel.textColor = UIColor.black
-        }
-        else if (numStore > 0){
-            numLabel.textColor = UIColor.blue
-        }
+        changeColor(num: numStore)
         updateLabel()
     }
     
@@ -49,6 +35,18 @@ class ViewController: UIViewController {
     //Method that allows subtractOne and addOne to update numLabel when pressed
     func updateLabel(){
         numLabel.text = String(numStore)
+    }
+    
+    //Switch Case to change Label Color based on value
+    func changeColor(num: Int){
+        switch num{
+        case let x where x < 0:
+            numLabel.textColor = UIColor.red
+        case let x where x > 0:
+            numLabel.textColor = UIColor.blue
+        default:
+            numLabel.textColor = UIColor.black
+        }
     }
 }
 
