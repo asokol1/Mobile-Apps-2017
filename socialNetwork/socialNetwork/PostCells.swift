@@ -18,20 +18,14 @@ class PostCells: UITableViewCell{
     var likes : Int = 0
     
     @IBOutlet weak var nameLabel: UILabel!
-    
     @IBOutlet weak var dateLabel: UILabel!
-    
     @IBOutlet weak var messageLabel: UILabel!
-    
     @IBOutlet weak var numLikes: UILabel!
-    
     @IBOutlet weak var urlButton: UIButton!
-    
     @IBAction func urlButtonTapped(_ sender: Any) {
         let safariVC = SFSafariViewController(url: self.url)
         parentVC.navigationController?.pushViewController(safariVC, animated: true)
     }
-    
     @IBAction func likeButton(_ sender: Any) {
         if haveLiked == false{
             Networking.sharedNetworking.like(messageID: (message?.id)!){ (complete) in
@@ -54,12 +48,7 @@ class PostCells: UITableViewCell{
     }
     func configure(message: Message, parentVC: UIViewController){
         self.message = message
-        let newName = message.user.split(separator: ".")
-        var newString = ""
-        for item in newName{
-            newString = newString + item
-            }
-        self.textLabel?.text = newString
+        self.nameLabel.text = message.user.replacingOccurrences(of: ".", with: " ").capitalized
         let date: Date = (self.message?.date)!
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM dd, yyyy"
