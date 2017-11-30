@@ -31,6 +31,7 @@ class Networking{
         request.httpMethod = "POST"
         let tokenTask = URLSession(configuration: .ephemeral).dataTask(with: request) { (data, response, error) in
             let rToken = try! JSONDecoder().decode(Token.self, from: data!)
+            UserInformation.sharedUserInformation.userInfo(username: user.name, token: rToken.token)
             completionHandler(rToken.token)
         }
         tokenTask.resume()
