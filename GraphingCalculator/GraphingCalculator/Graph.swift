@@ -8,22 +8,40 @@
 
 import UIKit
 
-//let viewWidth = view.bounds.width
-//let viewHeight = view.bounds.height
 
-
-class Graph{
+class Graph: UIView{
+    var finalString = ""
     
-    func drawOrigin(numPoints : Int) -> CGPath{
-        let xEdge = CGFloat(200)//viewWidth/2
-        let yEdge = CGFloat(200)//viewHeight/2
+    let shapeLayer = CAShapeLayer()
+    
+    func setup(){
+        shapeLayer.path = (drawOrigin(numPoints: 10) as! CGPath)
+        shapeLayer.strokeColor = UIColor.black.cgColor
+        shapeLayer.lineWidth = 1.0
+        shapeLayer.position = CGPoint(x: 200, y: 200)
+        self.layer.addSublayer(shapeLayer)
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
+    }
+    
+    func drawOrigin(numPoints : Int){
+        let xEdge = self.bounds.width/2
+        let yEdge = self.bounds.height/2
         let path = UIBezierPath()
         path.append(drawLine(pt1: CGPoint(x: -xEdge, y: 0),
                              pt2: CGPoint(x: xEdge, y: 0)))
         path.append(drawLine(pt1: CGPoint(x: 0, y: -yEdge),
                              pt2: CGPoint(x: 0, y: yEdge)))
         if numPoints >= 1{
-            let breakLength = CGFloat(200/numPoints)
+            let breakLength = self.bounds.width / CGFloat(numPoints)
             let dashSize = CGFloat(50/numPoints)
             var iter = -xEdge
             while iter <= xEdge{
@@ -32,8 +50,8 @@ class Graph{
                 iter += breakLength
             }
         }
+        shapeLayer.path = path.cgPath
         path.close()
-        return path.cgPath
     }
     
     func drawLine(pt1: CGPoint, pt2: CGPoint) -> UIBezierPath{
@@ -58,10 +76,11 @@ class Graph{
         path.close()
         return path
     }
-    let stringLook = "x^2 + 3x"
-    let stringActual = "(x)^^2 + 3 * x"
-    func solve(equation: String, for: Double) -> Double{
-        let expression = NSExpression(format: equation)
+    
+    func solve(equation: String, variable: Double) -> Double{
+        let aString = equation
+        let newString = aString.replacingOccurrences(of: "x", with: String(variable))
+        let expression = NSExpression(format: newString)
         let value = expression.expressionValue(with: nil, context: nil) as! Double
         return value
     }

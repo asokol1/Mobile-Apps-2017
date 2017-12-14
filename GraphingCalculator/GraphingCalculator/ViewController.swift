@@ -9,129 +9,148 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    var stringToParse: [String] = []
-    var largeNum = ""
-    var count = 0
+    let parser = StringParser()
+    
+    func update(var1: String, var2: String){
+        equationLabel.text.append(var1)
+        parser.updateStrings(val1: var1, val2: var2)
+    }
     
     @IBOutlet weak var equationLabel: UITextView!
     
     @IBAction func allClear(_ sender: Any) {
         equationLabel.text.removeAll()
-        stringToParse.removeAll()
+        parser.stringToParse.removeAll()
+        parser.largeNum.removeAll()
+        parser.test.removeAll()
+        parser.count = -1
     }
     @IBAction func cos(_ sender: Any) {
-        updateStrings(val1: "cos(", val2: "cos(")
+        update(var1: "cos(", var2: "cos(")
     }
+    
     @IBAction func sin(_ sender: Any) {
-        updateStrings(val1: "sin(", val2: "sin(")
+        update(var1: "sin(", var2: "sin(")
     }
+    
     @IBAction func tan(_ sender: Any) {
-        updateStrings(val1: "tan(", val2: "tan(")
-        
+        update(var1: "tan(", var2: "tan(")
     }
+    
     @IBAction func power(_ sender: Any) {
-        updateStrings(val1: "^(", val2: "pow(\(stringToParse[count-1]),(")
-        
+        if parser.stringToParse.isEmpty && parser.largeNum.isEmpty{
+            equationLabel.text = "ERROR"
+        }
+        else if !parser.largeNum.isEmpty{
+            parser.test = parser.largeNum
+            update(var1: "^(", var2: "pow(\(parser.test),")
+            parser.stringToParse.remove(at: parser.count-1)
+            parser.count-=1
+        }
+        else if parser.stringToParse[parser.count] == "x"{
+            parser.test = "x"
+            update(var1: "^(", var2: "pow(\(parser.test),")
+            parser.stringToParse.remove(at: parser.count-1)
+            parser.count-=1
+        }
+        else{equationLabel.text = "ERROR"}
     }
+    
     @IBAction func sqrt(_ sender: Any) {
-        updateStrings(val1: "√(", val2: "sqrt(")
+        update(var1: "√", var2: "pow(\(parser.test),")
         
     }
     @IBAction func pi(_ sender: Any) {
-        updateStrings(val1: "π", val2: ".pi")
-        
+        update(var1: "^(", var2: "sqrt(")
     }
+    
     @IBAction func variable(_ sender: Any) {
-        updateStrings(val1: "x", val2: "(var)")
-        
+        update(var1: "x", var2: "x")
     }
+    
     @IBAction func leftParens(_ sender: Any) {
-        updateStrings(val1: "(", val2: "(")
-        
+        update(var1: "(", var2: "(")
     }
+    
     @IBAction func rightParens(_ sender: Any) {
-        updateStrings(val1: ")", val2: ")")
-        
+        update(var1: ")", var2: ")")
     }
+    
     @IBAction func div(_ sender: Any) {
-        updateStrings(val1: "/", val2: "/")
-        
+        update(var1: "/", var2: "/")
     }
+    
     @IBAction func mult(_ sender: Any) {
-        updateStrings(val1: "*", val2: "*")
-        
+        update(var1: "*", var2: "*")
     }
+    
     @IBAction func sub(_ sender: Any) {
-        updateStrings(val1: "-", val2: "-")
-        
+        update(var1: "-", var2: "-")
     }
+    
     @IBAction func add(_ sender: Any) {
-        updateStrings(val1: "+", val2: "+")
-        
+        update(var1: "+", var2: "+")
     }
+    
     @IBAction func decimal(_ sender: Any) {
-        updateStrings(val1: ".", val2: ".")
-        
+        update(var1: ".", var2: ".")
     }
+    
     @IBAction func zero(_ sender: Any) {
-        updateStrings(val1: "0", val2: "0")
-        
+        update(var1: "0", var2: "0")
     }
+    
     @IBAction func one(_ sender: Any) {
-        updateStrings(val1: "1", val2: "1")
-        
+        update(var1: "1", var2: "1")
     }
+    
     @IBAction func two(_ sender: Any) {
-        updateStrings(val1: "2", val2: "2")
-        
+        update(var1: "2", var2: "2")
     }
+    
     @IBAction func three(_ sender: Any) {
-        updateStrings(val1: "3", val2: "3")
-        
+        update(var1: "3", var2: "3")
     }
+    
     @IBAction func four(_ sender: Any) {
-        updateStrings(val1: "4", val2: "4")
-        
+        update(var1: "4", var2: "4")
     }
+    
     @IBAction func five(_ sender: Any) {
-        updateStrings(val1: "5", val2: "5")
-        
+        update(var1: "5", var2: "5")
     }
+    
     @IBAction func six(_ sender: Any) {
-        updateStrings(val1: "6", val2: "6")
-        
+        update(var1: "6", var2: "6")
     }
+    
     @IBAction func seven(_ sender: Any) {
-        updateStrings(val1: "7", val2: "7")
-        
+        update(var1: "7", var2: "7")
     }
+    
     @IBAction func eight(_ sender: Any) {
-        updateStrings(val1: "8", val2: "8")
-        
+        update(var1: "8", var2: "8")
     }
+    
     @IBAction func nine(_ sender: Any) {
-        updateStrings(val1: "9", val2: "9")
+        update(var1: "9", var2: "9")
     }
     
-    @IBAction func equals(_ sender: Any) {
+    @IBAction func equals(_ sender: Any){
+        if !parser.largeNum.isEmpty{
+            parser.stringToParse.append(parser.largeNum)
+            parser.largeNum.removeAll()
+        }
+        parser.finalString = parser.stringToParse.joined()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let myVC = storyboard.instantiateViewController(withIdentifier: "GraphViewController") as! GraphViewController
+        print(self.equationLabel.text)
+//        myVC.finalString = parser.finalString
+        self.present(myVC, animated: true, completion: nil)
+        print("pushed")
     }
     
-    let values = ["1" , "2" , "3" , "4" , "5" , "6" , "7" , "8" , "9"]
-    func updateStrings(val1: String, val2: String){
-        equationLabel.text.append(val1)
-        
-        if !values.contains(val2) {
-            if largeNum != ""{
-                stringToParse.append(largeNum)
-                count+=1
-                largeNum.removeAll()
-            }
-            stringToParse.append(val2)
-            count+=1
-            print(count, stringToParse)
-        }else{
-            largeNum.append(val2)
+    override func viewDidLoad() {
+        super .viewDidLoad()
     }
-}
 }

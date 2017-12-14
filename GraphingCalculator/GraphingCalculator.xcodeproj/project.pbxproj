@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		097DF8281FE320D600061DF7 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097DF8271FE320D600061DF7 /* GraphViewController.swift */; };
 		89C33F221FDF66BC0029D2EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C33F211FDF66BC0029D2EE /* AppDelegate.swift */; };
 		89C33F241FDF66BC0029D2EE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C33F231FDF66BC0029D2EE /* ViewController.swift */; };
 		89C33F271FDF66BC0029D2EE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C33F251FDF66BC0029D2EE /* Main.storyboard */; };
@@ -14,7 +15,7 @@
 		89C33F2C1FDF66BC0029D2EE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89C33F2A1FDF66BC0029D2EE /* LaunchScreen.storyboard */; };
 		89C33F371FDF66BC0029D2EE /* GraphingCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C33F361FDF66BC0029D2EE /* GraphingCalculatorTests.swift */; };
 		89C33F421FDF66BC0029D2EE /* GraphingCalculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C33F411FDF66BC0029D2EE /* GraphingCalculatorUITests.swift */; };
-		89C33F501FDF66EF0029D2EE /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C33F4F1FDF66EF0029D2EE /* GraphView.swift */; };
+		89C33F501FDF66EF0029D2EE /* Graph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C33F4F1FDF66EF0029D2EE /* Graph.swift */; };
 		89C33F561FDF8B1C0029D2EE /* StringParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C33F551FDF8B1C0029D2EE /* StringParser.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		097DF8271FE320D600061DF7 /* GraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
 		89C33F1E1FDF66BC0029D2EE /* GraphingCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraphingCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89C33F211FDF66BC0029D2EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89C33F231FDF66BC0029D2EE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,7 +51,7 @@
 		89C33F3D1FDF66BC0029D2EE /* GraphingCalculatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GraphingCalculatorUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		89C33F411FDF66BC0029D2EE /* GraphingCalculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphingCalculatorUITests.swift; sourceTree = "<group>"; };
 		89C33F431FDF66BC0029D2EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		89C33F4F1FDF66EF0029D2EE /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		89C33F4F1FDF66EF0029D2EE /* Graph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Graph.swift; sourceTree = "<group>"; };
 		89C33F551FDF8B1C0029D2EE /* StringParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,7 +104,8 @@
 			isa = PBXGroup;
 			children = (
 				89C33F211FDF66BC0029D2EE /* AppDelegate.swift */,
-				89C33F4F1FDF66EF0029D2EE /* GraphView.swift */,
+				89C33F4F1FDF66EF0029D2EE /* Graph.swift */,
+				097DF8271FE320D600061DF7 /* GraphViewController.swift */,
 				89C33F231FDF66BC0029D2EE /* ViewController.swift */,
 				89C33F551FDF8B1C0029D2EE /* StringParser.swift */,
 				89C33F251FDF66BC0029D2EE /* Main.storyboard */,
@@ -266,8 +269,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				89C33F241FDF66BC0029D2EE /* ViewController.swift in Sources */,
+				097DF8281FE320D600061DF7 /* GraphViewController.swift in Sources */,
 				89C33F221FDF66BC0029D2EE /* AppDelegate.swift in Sources */,
-				89C33F501FDF66EF0029D2EE /* GraphView.swift in Sources */,
+				89C33F501FDF66EF0029D2EE /* Graph.swift in Sources */,
 				89C33F561FDF8B1C0029D2EE /* StringParser.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
