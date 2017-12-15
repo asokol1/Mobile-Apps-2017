@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     let parser = StringParser()
+    var data = Data()
     
     func update(var1: String, var2: String){
         equationLabel.text.append(var1)
@@ -17,13 +18,18 @@ class ViewController: UIViewController {
     }
     
     @IBOutlet weak var equationLabel: UITextView!
+
     
-    @IBAction func allClear(_ sender: Any) {
+    func clear(){
         equationLabel.text.removeAll()
         parser.stringToParse.removeAll()
         parser.largeNum.removeAll()
         parser.test.removeAll()
         parser.count = -1
+        data.finalString.removeAll()
+    }
+    @IBAction func allClear(_ sender: Any) {
+        clear()
     }
     @IBAction func cos(_ sender: Any) {
         update(var1: "cos(", var2: "cos(")
@@ -141,16 +147,23 @@ class ViewController: UIViewController {
             parser.stringToParse.append(parser.largeNum)
             parser.largeNum.removeAll()
         }
-        parser.finalString = parser.stringToParse.joined()
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let myVC = storyboard.instantiateViewController(withIdentifier: "GraphViewController") as! GraphViewController
-        print(self.equationLabel.text)
-//        myVC.finalString = parser.finalString
-        self.present(myVC, animated: true, completion: nil)
+        data.finalString = parser.stringToParse.joined()
+        performSegue(withIdentifier: "GraphSegue", sender: self)
         print("pushed")
+        
+        clear()
+        
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destVC = segue.destination as! GraphViewController
+        destVC.data = self.data
+       }
     
-    override func viewDidLoad() {
-        super .viewDidLoad()
-    }
+    
+    
 }
+
+
+
+
+

@@ -430,6 +430,7 @@
                     <navigationItem key="navigationItem" id="ILH-7K-2T4"/>
                     <connections>
                         <outlet property="equationLabel" destination="cco-uL-6A2" id="4qr-H5-16b"/>
+                        <segue destination="Hrf-XV-2D2" kind="show" identifier="GraphSegue" id="0Y0-1V-eVU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -444,16 +445,38 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SGb-n2-3cu">
-                                <rect key="frame" x="16" y="20" width="343" height="343"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SGb-n2-3cu">
+                                <rect key="frame" x="16" y="115" width="343" height="260"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Age-ul-WhC">
+                                <rect key="frame" x="16" y="448" width="343" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="yIE-Fv-ZwJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.8392454386" green="0.83922725919999996" blue="0.83923077580000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="SGb-n2-3cu" firstAttribute="leading" secondItem="Age-ul-WhC" secondAttribute="leading" id="3gq-qH-xxR"/>
+                            <constraint firstItem="Age-ul-WhC" firstAttribute="top" secondItem="SGb-n2-3cu" secondAttribute="bottom" constant="73" id="DMf-Iz-OnX"/>
+                            <constraint firstItem="Age-ul-WhC" firstAttribute="width" secondItem="SGb-n2-3cu" secondAttribute="width" id="MOH-9n-acz"/>
+                            <constraint firstItem="SGb-n2-3cu" firstAttribute="top" secondItem="jaO-uh-0zd" secondAttribute="top" constant="51" id="NUI-zE-479"/>
+                            <constraint firstItem="Age-ul-WhC" firstAttribute="centerX" secondItem="SGb-n2-3cu" secondAttribute="centerX" id="QeE-kh-cfn"/>
+                            <constraint firstItem="jaO-uh-0zd" firstAttribute="bottom" secondItem="Age-ul-WhC" secondAttribute="bottom" constant="159" id="jBX-WB-sz4"/>
+                            <constraint firstItem="SGb-n2-3cu" firstAttribute="trailing" secondItem="D2f-x7-7Bh" secondAttribute="trailingMargin" id="lQ9-0N-j0Z"/>
+                            <constraint firstItem="SGb-n2-3cu" firstAttribute="leading" secondItem="D2f-x7-7Bh" secondAttribute="leadingMargin" id="lTr-1b-qhc"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="jaO-uh-0zd"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Graph" id="J5k-go-XK5"/>
+                    <connections>
+                        <outlet property="equationLabel" destination="Age-ul-WhC" id="73Z-3c-uge"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JVz-rC-Lr6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

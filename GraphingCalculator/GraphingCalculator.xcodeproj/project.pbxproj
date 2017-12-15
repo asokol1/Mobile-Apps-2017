@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0924D6481FE4362600CBB8E6 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0924D6471FE4362600CBB8E6 /* Data.swift */; };
 		097DF8281FE320D600061DF7 /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097DF8271FE320D600061DF7 /* GraphViewController.swift */; };
 		89C33F221FDF66BC0029D2EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C33F211FDF66BC0029D2EE /* AppDelegate.swift */; };
 		89C33F241FDF66BC0029D2EE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C33F231FDF66BC0029D2EE /* ViewController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0924D6471FE4362600CBB8E6 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		097DF8271FE320D600061DF7 /* GraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
 		89C33F1E1FDF66BC0029D2EE /* GraphingCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraphingCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89C33F211FDF66BC0029D2EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				89C33F4F1FDF66EF0029D2EE /* Graph.swift */,
 				097DF8271FE320D600061DF7 /* GraphViewController.swift */,
 				89C33F231FDF66BC0029D2EE /* ViewController.swift */,
+				0924D6471FE4362600CBB8E6 /* Data.swift */,
 				89C33F551FDF8B1C0029D2EE /* StringParser.swift */,
 				89C33F251FDF66BC0029D2EE /* Main.storyboard */,
 				89C33F281FDF66BC0029D2EE /* Assets.xcassets */,
@@ -269,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89C33F241FDF66BC0029D2EE /* ViewController.swift in Sources */,
+				0924D6481FE4362600CBB8E6 /* Data.swift in Sources */,
 				097DF8281FE320D600061DF7 /* GraphViewController.swift in Sources */,
 				89C33F221FDF66BC0029D2EE /* AppDelegate.swift in Sources */,
 				89C33F501FDF66EF0029D2EE /* Graph.swift in Sources */,
