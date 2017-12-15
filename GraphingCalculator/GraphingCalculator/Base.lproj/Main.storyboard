@@ -445,31 +445,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SGb-n2-3cu">
-                                <rect key="frame" x="16" y="115" width="343" height="260"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Age-ul-WhC">
-                                <rect key="frame" x="16" y="448" width="343" height="60"/>
+                                <rect key="frame" x="16" y="500" width="343" height="60"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="xDx-rl-mcf"/>
                                     <constraint firstAttribute="height" constant="60" id="yIE-Fv-ZwJ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZvU-D0-bon">
+                                <rect key="frame" x="16" y="115" width="343" height="291"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.8392454386" green="0.83922725919999996" blue="0.83923077580000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="SGb-n2-3cu" firstAttribute="leading" secondItem="Age-ul-WhC" secondAttribute="leading" id="3gq-qH-xxR"/>
-                            <constraint firstItem="Age-ul-WhC" firstAttribute="top" secondItem="SGb-n2-3cu" secondAttribute="bottom" constant="73" id="DMf-Iz-OnX"/>
-                            <constraint firstItem="Age-ul-WhC" firstAttribute="width" secondItem="SGb-n2-3cu" secondAttribute="width" id="MOH-9n-acz"/>
-                            <constraint firstItem="SGb-n2-3cu" firstAttribute="top" secondItem="jaO-uh-0zd" secondAttribute="top" constant="51" id="NUI-zE-479"/>
-                            <constraint firstItem="Age-ul-WhC" firstAttribute="centerX" secondItem="SGb-n2-3cu" secondAttribute="centerX" id="QeE-kh-cfn"/>
-                            <constraint firstItem="jaO-uh-0zd" firstAttribute="bottom" secondItem="Age-ul-WhC" secondAttribute="bottom" constant="159" id="jBX-WB-sz4"/>
-                            <constraint firstItem="SGb-n2-3cu" firstAttribute="trailing" secondItem="D2f-x7-7Bh" secondAttribute="trailingMargin" id="lQ9-0N-j0Z"/>
-                            <constraint firstItem="SGb-n2-3cu" firstAttribute="leading" secondItem="D2f-x7-7Bh" secondAttribute="leadingMargin" id="lTr-1b-qhc"/>
+                            <constraint firstItem="ZvU-D0-bon" firstAttribute="leading" secondItem="jaO-uh-0zd" secondAttribute="leading" constant="16" id="5py-dm-Ln5"/>
+                            <constraint firstItem="Age-ul-WhC" firstAttribute="centerX" secondItem="ZvU-D0-bon" secondAttribute="centerX" id="T4h-4f-ESX"/>
+                            <constraint firstItem="ZvU-D0-bon" firstAttribute="centerX" secondItem="jaO-uh-0zd" secondAttribute="centerX" id="Z5J-jX-Lwq"/>
+                            <constraint firstItem="ZvU-D0-bon" firstAttribute="top" secondItem="jaO-uh-0zd" secondAttribute="top" constant="51" id="bm8-wX-fdw"/>
+                            <constraint firstItem="Age-ul-WhC" firstAttribute="top" secondItem="ZvU-D0-bon" secondAttribute="bottom" constant="94" id="dKd-nX-lAI"/>
+                            <constraint firstItem="jaO-uh-0zd" firstAttribute="bottom" secondItem="Age-ul-WhC" secondAttribute="bottom" constant="107" id="jBX-WB-sz4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jaO-uh-0zd"/>
                     </view>

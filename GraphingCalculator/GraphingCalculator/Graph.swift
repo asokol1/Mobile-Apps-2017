@@ -10,30 +10,37 @@ import UIKit
 
 
 class Graph: UIView{
-    
-    var finalString = ""
-    let shapeLayer = CAShapeLayer()
     var numPoints: CGFloat = 10.0
     
-//    func setup(){
-//        shapeLayer.strokeColor = UIColor.black.cgColor
-//        shapeLayer.lineWidth = 1.0
-//        shapeLayer.position = CGPoint(x: 200, y: 200)
-//    }
-//
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//        drawOrigin(numPoints: numPoints)
-//        setup()
-//
-//    }
-//
-//    required init?(coder aDecoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setup()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        setup()
+    }
+    
+    func setup(){
+        // Create a CAShapeLayer
+        let shapeLayer = CAShapeLayer()
+        
+        // The Bezier path that we made needs to be converted to
+        // a CGPath before it can be used on a layer.
+        shapeLayer.path = drawOrigin(numPoints: numPoints).cgPath
+        
+        // apply other properties related to the path
+        shapeLayer.strokeColor = UIColor.black.cgColor
+        shapeLayer.fillColor = UIColor.white.cgColor
+        shapeLayer.lineWidth = 1.0
+        
+        // add the new layer to our custom view
+        self.layer.addSublayer(shapeLayer)
+    }
     
     
-    func drawOrigin(numPoints : CGFloat){
+    func drawOrigin(numPoints : CGFloat) -> UIBezierPath{
         let xEdge = self.bounds.width/2
         let yEdge = self.bounds.height/2
         let path = UIBezierPath()
@@ -51,8 +58,8 @@ class Graph: UIView{
                 iter += breakLength
             }
         }
-        shapeLayer.path = path.cgPath
         path.close()
+        return path
     }
     
     func drawLine(pt1: CGPoint, pt2: CGPoint) -> UIBezierPath{

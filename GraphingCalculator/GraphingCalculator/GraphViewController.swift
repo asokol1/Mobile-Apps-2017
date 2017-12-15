@@ -14,18 +14,21 @@ class GraphViewController: UIViewController{
     @IBOutlet weak var graphView: UIView!
     
     var data: Data?
-    let graph = Graph()
+    
     var ptArr: [CGPoint] = []
+    var numPoints: CGFloat = 10.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        let graph = Graph()
+//        graph.frame = CGRect(x: 16, y: 115, width: 343, height: 343)
+//        graph.backgroundColor=UIColor.white
+//        graphView.addSubview(graph)
+        
         equationLabel.text = data?.finalString
-        ptArr = (data?.populatePointArray(numPoints: graph.numPoints,
-                                          view: graph.shapeLayer))!
         
     }
     
-
 }
 
 

@@ -107,8 +107,8 @@
 			children = (
 				89C33F211FDF66BC0029D2EE /* AppDelegate.swift */,
 				89C33F4F1FDF66EF0029D2EE /* Graph.swift */,
-				097DF8271FE320D600061DF7 /* GraphViewController.swift */,
 				89C33F231FDF66BC0029D2EE /* ViewController.swift */,
+				097DF8271FE320D600061DF7 /* GraphViewController.swift */,
 				0924D6471FE4362600CBB8E6 /* Data.swift */,
 				89C33F551FDF8B1C0029D2EE /* StringParser.swift */,
 				89C33F251FDF66BC0029D2EE /* Main.storyboard */,

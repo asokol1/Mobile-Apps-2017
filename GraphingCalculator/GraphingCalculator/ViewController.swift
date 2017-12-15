@@ -11,7 +11,6 @@ import UIKit
 class ViewController: UIViewController {
     let parser = StringParser()
     var data = Data()
-    
     func update(var1: String, var2: String){
         equationLabel.text.append(var1)
         parser.updateStrings(val1: var1, val2: var2)
@@ -21,16 +20,18 @@ class ViewController: UIViewController {
 
     
     func clear(){
-        equationLabel.text.removeAll()
+        equationLabel.text = "y="
         parser.stringToParse.removeAll()
         parser.largeNum.removeAll()
         parser.test.removeAll()
         parser.count = -1
         data.finalString.removeAll()
     }
+    
     @IBAction func allClear(_ sender: Any) {
         clear()
     }
+    
     @IBAction func cos(_ sender: Any) {
         update(var1: "cos(", var2: "cos(")
     }
@@ -44,30 +45,15 @@ class ViewController: UIViewController {
     }
     
     @IBAction func power(_ sender: Any) {
-        if parser.stringToParse.isEmpty && parser.largeNum.isEmpty{
-            equationLabel.text = "ERROR"
-        }
-        else if !parser.largeNum.isEmpty{
-            parser.test = parser.largeNum
-            update(var1: "^(", var2: "pow(\(parser.test),")
-            parser.stringToParse.remove(at: parser.count-1)
-            parser.count-=1
-        }
-        else if parser.stringToParse[parser.count] == "x"{
-            parser.test = "x"
-            update(var1: "^(", var2: "pow(\(parser.test),")
-            parser.stringToParse.remove(at: parser.count-1)
-            parser.count-=1
-        }
-        else{equationLabel.text = "ERROR"}
+        update(var1: "^(", var2: "**")
     }
     
     @IBAction func sqrt(_ sender: Any) {
-        update(var1: "√", var2: "pow(\(parser.test),")
+        update(var1: "√(", var2: "sqrt(")
         
     }
     @IBAction func pi(_ sender: Any) {
-        update(var1: "^(", var2: "sqrt(")
+        update(var1: "π", var2: "3.14159")
     }
     
     @IBAction func variable(_ sender: Any) {
@@ -150,7 +136,6 @@ class ViewController: UIViewController {
         data.finalString = parser.stringToParse.joined()
         performSegue(withIdentifier: "GraphSegue", sender: self)
         print("pushed")
-        
         clear()
         
     }

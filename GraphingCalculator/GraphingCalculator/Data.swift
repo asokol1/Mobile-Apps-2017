@@ -10,6 +10,8 @@ import UIKit
 
 struct Data{
     var finalString = ""
+    let layer = CALayer()
+    
     
     func solve(variable: CGFloat) -> CGFloat{
         let expression = NSExpression(format: finalString.replacingOccurrences(of: "x", with: String(describing: variable)))
@@ -18,8 +20,9 @@ struct Data{
     }
     
     //Create array of calculated CGPoints for easier drawing purposes
-    func populatePointArray(numPoints: CGFloat, view: CAShapeLayer) -> [CGPoint]{
+    func populatePointArray(numPoints: CGFloat, view: UIView) -> [CGPoint]{
         let width = CGFloat(view.bounds.width)
+        print(width)
         var ptArr: [CGPoint] = []
         var xVal = CGFloat(0.0)
         let pxPerPt =  width / numPoints
