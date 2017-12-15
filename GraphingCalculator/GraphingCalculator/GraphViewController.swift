@@ -20,7 +20,8 @@ class GraphViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         equationLabel.text = data?.finalString
-        //ptArr = (data?.populatePointArray(equation: equationLabel.text!, numPoints: graph.numPoints, view: graph.shapeLayer))!
+        ptArr = (data?.populatePointArray(numPoints: graph.numPoints,
+                                          view: graph.shapeLayer))!
         
     }
     
