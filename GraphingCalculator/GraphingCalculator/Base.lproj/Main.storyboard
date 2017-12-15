@@ -457,7 +457,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZvU-D0-bon">
-                                <rect key="frame" x="16" y="115" width="343" height="291"/>
+                                <rect key="frame" x="16" y="115" width="343" height="343"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
@@ -467,7 +467,7 @@
                             <constraint firstItem="Age-ul-WhC" firstAttribute="centerX" secondItem="ZvU-D0-bon" secondAttribute="centerX" id="T4h-4f-ESX"/>
                             <constraint firstItem="ZvU-D0-bon" firstAttribute="centerX" secondItem="jaO-uh-0zd" secondAttribute="centerX" id="Z5J-jX-Lwq"/>
                             <constraint firstItem="ZvU-D0-bon" firstAttribute="top" secondItem="jaO-uh-0zd" secondAttribute="top" constant="51" id="bm8-wX-fdw"/>
-                            <constraint firstItem="Age-ul-WhC" firstAttribute="top" secondItem="ZvU-D0-bon" secondAttribute="bottom" constant="94" id="dKd-nX-lAI"/>
+                            <constraint firstItem="Age-ul-WhC" firstAttribute="top" secondItem="ZvU-D0-bon" secondAttribute="bottom" constant="42" id="dKd-nX-lAI"/>
                             <constraint firstItem="jaO-uh-0zd" firstAttribute="bottom" secondItem="Age-ul-WhC" secondAttribute="bottom" constant="107" id="jBX-WB-sz4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jaO-uh-0zd"/>
@@ -475,6 +475,7 @@
                     <tabBarItem key="tabBarItem" title="Graph" id="J5k-go-XK5"/>
                     <connections>
                         <outlet property="equationLabel" destination="Age-ul-WhC" id="73Z-3c-uge"/>
+                        <outlet property="graphView" destination="ZvU-D0-bon" id="xhb-iw-3lM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JVz-rC-Lr6" userLabel="First Responder" sceneMemberID="firstResponder"/>

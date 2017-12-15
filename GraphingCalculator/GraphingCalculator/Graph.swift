@@ -11,7 +11,7 @@ import UIKit
 
 class Graph: UIView{
     var numPoints: CGFloat = 10.0
-    
+     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -22,36 +22,32 @@ class Graph: UIView{
         setup()
     }
     
+    let height = 410
+    let width = 380
+    
     func setup(){
-        // Create a CAShapeLayer
         let shapeLayer = CAShapeLayer()
-        
-        // The Bezier path that we made needs to be converted to
-        // a CGPath before it can be used on a layer.
-        shapeLayer.path = drawOrigin(numPoints: numPoints).cgPath
-        
-        // apply other properties related to the path
+        shapeLayer.frame = CGRect(x: width/2, y: height/2, width: width, height: height)
+        // The Bezier path needs to be converted to a CGPath before it can be used on a layer.
+        shapeLayer.path = drawOrigin(numPoints: numPoints, width: shapeLayer.bounds.width, height: shapeLayer.bounds.height).cgPath
         shapeLayer.strokeColor = UIColor.black.cgColor
-        shapeLayer.fillColor = UIColor.white.cgColor
         shapeLayer.lineWidth = 1.0
-        
-        // add the new layer to our custom view
         self.layer.addSublayer(shapeLayer)
     }
-    
-    
-    func drawOrigin(numPoints : CGFloat) -> UIBezierPath{
-        let xEdge = self.bounds.width/2
-        let yEdge = self.bounds.height/2
+        
+    func drawOrigin(numPoints : CGFloat, width: CGFloat, height: CGFloat) -> UIBezierPath{
+        let xEdge = width/2
+        let yEdge = height/2
         let path = UIBezierPath()
         path.append(drawLine(pt1: CGPoint(x: -xEdge, y: 0),
                              pt2: CGPoint(x: xEdge, y: 0)))
         path.append(drawLine(pt1: CGPoint(x: 0, y: -yEdge),
                              pt2: CGPoint(x: 0, y: yEdge)))
         if numPoints >= 1{
-            let breakLength = self.bounds.width/numPoints
+            let breakLength = width/numPoints
             let dashSize = CGFloat(50/numPoints)
             var iter = -xEdge
+//            print(width, breakLength, dashSize, iter)
             while iter <= xEdge{
                 path.append(drawSegX(point: CGPoint(x: Double(iter), y: 0), size: dashSize))
                 path.append(drawSegY(point: CGPoint(x: 0, y: Double(iter)), size: dashSize))

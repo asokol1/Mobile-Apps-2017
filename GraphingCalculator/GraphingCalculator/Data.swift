@@ -9,6 +9,7 @@
 import UIKit
 
 struct Data{
+    var displayString = ""
     var finalString = ""
     let layer = CALayer()
     
@@ -21,12 +22,12 @@ struct Data{
     
     //Create array of calculated CGPoints for easier drawing purposes
     func populatePointArray(numPoints: CGFloat, view: UIView) -> [CGPoint]{
+        let points = numPoints/2
         let width = CGFloat(view.bounds.width)
-        print(width)
         var ptArr: [CGPoint] = []
-        var xVal = CGFloat(0.0)
-        let pxPerPt =  width / numPoints
-        var count = -numPoints
+        var xVal = CGFloat(-points)
+        let pxPerPt =  width / (numPoints)
+        var count = -points
         
         while xVal <= width{
             ptArr.append(CGPoint(x: count, y: (solve(variable: CGFloat(count)))))

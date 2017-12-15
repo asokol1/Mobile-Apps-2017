@@ -45,7 +45,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func power(_ sender: Any) {
-        update(var1: "^(", var2: "**")
+        update(var1: "^", var2: "**")
     }
     
     @IBAction func sqrt(_ sender: Any) {
@@ -133,10 +133,15 @@ class ViewController: UIViewController {
             parser.stringToParse.append(parser.largeNum)
             parser.largeNum.removeAll()
         }
-        data.finalString = parser.stringToParse.joined()
-        performSegue(withIdentifier: "GraphSegue", sender: self)
-        print("pushed")
-        clear()
+        if equationLabel.text == "y=" || equationLabel.text == "ERROR"{
+            equationLabel.text = "ERROR"
+        }else{
+            data.displayString = equationLabel.text
+            data.finalString = parser.stringToParse.joined()
+            performSegue(withIdentifier: "GraphSegue", sender: self)
+            print("pushed")
+            clear()
+        }
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
