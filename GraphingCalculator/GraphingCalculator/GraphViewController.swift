@@ -14,7 +14,7 @@ class GraphViewController: UIViewController{
     @IBOutlet weak var graphView: UIView!
     
     var data: Data?
-    //let graph = Graph()
+    let graph = Graph()
     var ptArr: [CGPoint] = []
     
     override func viewDidLoad() {
