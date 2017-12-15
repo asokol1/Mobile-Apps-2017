@@ -59,6 +59,7 @@ class Graph: UIView{
         let path = UIBezierPath()
         path.move(to: pt1)
         path.addLine(to: pt2)
+        path.close()
         return path
     }
     

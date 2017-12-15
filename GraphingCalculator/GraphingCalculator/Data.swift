@@ -18,7 +18,7 @@ struct Data{
     }
     
     //Create array of calculated CGPoints for easier drawing purposes
-    mutating func populatePointArray(equation: String, numPoints: CGFloat, view: CAShapeLayer) -> [CGPoint]{
+    func populatePointArray(equation: String, numPoints: CGFloat, view: CAShapeLayer) -> [CGPoint]{
         let width = CGFloat(view.bounds.width)
         var ptArr: [CGPoint] = []
         var xVal = CGFloat(0.0)
