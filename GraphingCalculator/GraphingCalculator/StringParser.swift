@@ -13,6 +13,7 @@ class StringParser{
     var test = ""
     let values = ["0" , "1" , "2" , "3" , "4" , "5" , "6" , "7" , "8" , "9"]
     
+    //Deals with front-end and back-end strings
     func updateStrings(val1: String, val2: String){
         if !values.contains(val2) || val2 == largeNum{
             if !largeNum.isEmpty{

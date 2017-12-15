@@ -18,7 +18,6 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var equationLabel: UITextView!
 
-    
     func clear(){
         equationLabel.text = "y="
         parser.stringToParse.removeAll()
@@ -28,6 +27,7 @@ class ViewController: UIViewController {
         data.finalString.removeAll()
     }
     
+    //Buttons. So many buttons.
     @IBAction func allClear(_ sender: Any) {
         clear()
     }
@@ -129,6 +129,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func equals(_ sender: Any){
+        //Front-end error checking
         if !parser.largeNum.isEmpty{
             parser.stringToParse.append(parser.largeNum)
             parser.largeNum.removeAll()

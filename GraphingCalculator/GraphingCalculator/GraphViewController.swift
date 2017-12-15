@@ -13,16 +13,9 @@ class GraphViewController: UIViewController{
     @IBOutlet weak var equationLabel: UILabel!
     @IBOutlet weak var graphView: UIView!
     
-    
     var data: Data?
-    
     var ptArr: [CGPoint] = []
     var numPoints: CGFloat = 10.0
-    
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,8 +29,6 @@ class GraphViewController: UIViewController{
         equationLabel.text = data?.displayString
         
         ptArr = (data?.populatePointArray(numPoints: numPoints, view: graphView))!
-//        print("graph",graph.bounds.width)
-//        print("pt",ptArr)
         
         let plot = UIBezierPath()
         while ptArr.count > 1{

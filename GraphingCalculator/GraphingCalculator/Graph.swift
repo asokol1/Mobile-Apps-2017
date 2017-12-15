@@ -25,6 +25,7 @@ class Graph: UIView{
     let height = 410
     let width = 380
     
+    //initializes parameters for each Graph instance called
     func setup(){
         let shapeLayer = CAShapeLayer()
         shapeLayer.frame = CGRect(x: width/2, y: height/2, width: width, height: height)
@@ -47,7 +48,6 @@ class Graph: UIView{
             let breakLength = width/numPoints
             let dashSize = CGFloat(50/numPoints)
             var iter = -xEdge
-//            print(width, breakLength, dashSize, iter)
             while iter <= xEdge{
                 path.append(drawSegX(point: CGPoint(x: Double(iter), y: 0), size: dashSize))
                 path.append(drawSegY(point: CGPoint(x: 0, y: Double(iter)), size: dashSize))
